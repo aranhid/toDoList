@@ -3,11 +3,212 @@ html {
 }
 
 body {
-    margin: 0 0 0 0;
+    margin: 0;
     font-family: 'Roboto', sans-serif;
-    font: Bold 20px Roboto;
-    opacity: 1;
     background-color: #fff;
+    background-image: url("img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100%;
     width: 100%;
+}
+
+.workplace {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.toDoList {
+    height: 100%;
+    width: 570px;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    background: #FFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 6px #00000029;
+    /* margin-left: 350px; */
+}
+
+.listHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.listHeader>h1 {
+    font: Bold 20px/24px Roboto;
+    color: #707070;
+    margin: 0;
+}
+
+.addButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.addButtonImage {
+    background-image: url("img/plus_button.svg");
+    height: 17px;
+    width: 17px;
+    margin-right: 5px;
+}
+
+.addButtonText {
+    font: 14px/17px Roboto;
+    color: #707070;
+}
+
+.listItems {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    height: 100%;
+    overflow: auto;
+}
+
+.task {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #fff;
+    min-height: 40px;
+}
+
+.task:nth-child(odd)
+{
+  background-color: #0606060A;
+}
+
+.taskStatus, .taskButtons {
+    display: flex;
+    flex-direction: row;
+}
+
+.taskStatus>div {
+    margin-left: 15px;
+}
+
+.taskButtons>div {
+    margin-right: 15px;
+}
+
+.checkBox {
+    background-image: url(img/checkbox_empty.svg);
+    height: 20px;
+    width: 20px;
+}
+
+.highPriority {
+    background-image: url(img/highprio.svg);
+    height: 20px;
+    width: 20px;
+}
+
+.taskValue {
+    padding: 0 15px;
+    width: 100%;
+}
+
+.editTaskButton {
+    background-image: url(img/edit.svg);
+    height: 20px;
+    width: 20px;
+}
+
+.deleteTaskButton {
+    background-image: url(img/delete.svg);
+    height: 20px;
+    width: 20px;
+}
+
+.toDoEditor {
+    /* display: none; */
+    height: 212px;
+    width: 555px;
+    min-width: 285px;
+    margin-top: 100px;
+    /* margin-left: 2px; */
+    background: #FFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 6px #00000029;
+    border-radius: 0px 14px 14px 0px;
+    box-sizing: border-box;
+    padding: 28px 30px;
+}
+
+.toDoEditor>h1{
+    font: 18px/22px Roboto;
+    margin: 0;
+}
+
+.toDoEditor>h2{
+    font: 14px/17px Roboto;
+    color: #707070;
+    margin: 0;
+    margin-top: 7px;
+}
+
+.toDoEditor>input {
+    margin-top: 5px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #AAAAAABF;
+    border-radius: 2px;
+    opacity: 1;
+    width: 100%;
+}
+
+.highPrioritySettings {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+.highPrioritySettings>.settingText {
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+.editorButtons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+.saveButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 14px/17px Roboto;
+    color: #fff;
+    box-shadow: 0px 0px 3px #00000029;
+    width: 126px;
+    height: 32px;
+    background: #3F88E8 0% 0% no-repeat padding-box;
+    border-radius: 32px;
+    opacity: 1;
+    margin-right: 15px;
+}
+
+.closeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 14px/17px Roboto;
+    color: #707070;
+    box-shadow: 0px 0px 3px #00000029;
+    width: 126px;
+    height: 32px;
+    background: #fff 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 32px;
+    opacity: 1;
+    margin-right: 15px;
 }
