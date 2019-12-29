@@ -53,6 +53,7 @@ body {
     flex-direction: row;
     align-items: center;
     cursor: pointer;
+    user-select: none;
 }
 
 .addButtonImage {
@@ -102,13 +103,18 @@ body {
 }
 
 .checkBox {
-    background-image: url(img/checkbox_empty.svg);
+    background-image: url('img/checkbox_empty.svg');
     height: 20px;
     width: 20px;
+    cursor: pointer;
+}
+
+.checkBox.checked {
+    background-image: url('img/checkbox.svg');
 }
 
 .highPriority {
-    background-image: url(img/highprio.svg);
+    background-image: url('img/highprio.svg');
     height: 20px;
     width: 20px;
 }
@@ -119,19 +125,20 @@ body {
 }
 
 .editTaskButton {
-    background-image: url(img/edit.svg);
+    background-image: url('img/edit.svg');
     height: 20px;
     width: 20px;
+    cursor: pointer;
 }
 
 .deleteTaskButton {
-    background-image: url(img/delete.svg);
+    background-image: url('img/delete.svg');
     height: 20px;
     width: 20px;
+    cursor: pointer;
 }
 
-.toDoEditor {
-    /* display: none; */
+.taskEditor {
     height: 212px;
     width: 555px;
     min-width: 285px;
@@ -144,19 +151,19 @@ body {
     padding: 28px 30px;
 }
 
-.toDoEditor>h1{
+.taskEditor>h1{
     font: 18px/22px Roboto;
     margin: 0;
 }
 
-.toDoEditor>h2{
+.taskEditor>h2{
     font: 14px/17px Roboto;
     color: #707070;
     margin: 0;
     margin-top: 7px;
 }
 
-.toDoEditor>input {
+.taskEditor>input {
     margin-top: 5px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #AAAAAABF;
@@ -165,13 +172,15 @@ body {
     width: 100%;
 }
 
-.highPrioritySettings {
+.highPriorityButton {
     display: flex;
     flex-direction: row;
     margin-top: 15px;
+    cursor: pointer;
+    user-select: none;
 }
 
-.highPrioritySettings>.settingText {
+.highPriorityButton>.settingText {
     padding: 0 8px;
     box-sizing: border-box;
 }
@@ -195,6 +204,8 @@ body {
     border-radius: 32px;
     opacity: 1;
     margin-right: 15px;
+    cursor: pointer;
+    user-select: none;
 }
 
 .closeButton {
@@ -211,4 +222,19 @@ body {
     border-radius: 32px;
     opacity: 1;
     margin-right: 15px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.complitedTask > .taskValue {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.complitedTask > .taskButtons {
+    opacity: 0.5;
+}
+
+.hidden {
+    display: none;
 }
