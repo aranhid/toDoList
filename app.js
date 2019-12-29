@@ -1,12 +1,11 @@
 let taskCount = 0;
-//let currentTask;
+let currentTask;
 
 window.onload = function () {
     taskEditorButtonsAddFunctions();
     document.addEventListener('closeTaskEditor', closeTaskEditor);
     document.addEventListener('openTaskEditor', openTaskEditor);
     let addButton = document.querySelector('.addButton');
-    //addTask(taskCount);
     addButton.addEventListener('click', addTask);
 }
 
@@ -20,17 +19,34 @@ function addTask(event) {
 
 function taskEditorButtonsAddFunctions() {
     let taskEditorWindow = document.querySelector('.taskEditor');
+    let taskEditorPriorityButton = taskEditorWindow.querySelector('.highPriorityButton');
     let saveButton = taskEditorWindow.querySelector('.saveButton');
     let closeButton = taskEditorWindow.querySelector('.closeButton');
 
+    taskEditorPriorityButton.addEventListener('click', taskEditorPriorityButtonFunction);
     saveButton.addEventListener('click', saveButtonFunction);
     closeButton.addEventListener('click', closeButtonFunction);
 }
 
+function taskEditorPriorityButtonFunction() {
+    let checkBox = event.target.closest('.taskEditor').querySelector('.checkBox');
+    checkBox.classList.toggle('checked');
+}
+
 function saveButtonFunction(event) {
     let inputString = event.target.closest('.taskEditor').querySelector('input');
+    let currentTaskPriority = currentTask.querySelector('.highPriority');
     let currentTaskValue = currentTask.querySelector('.taskValue');
+
     currentTaskValue.innerText = inputString.value;
+
+    let taskEditorCheckBox = event.target.closest('.taskEditor').querySelector('.checkBox');
+
+    if(taskEditorCheckBox.classList.contains('checked'))
+    {
+        currentTaskPriority.classList.remove('hidden');
+    } else currentTaskPriority.classList.add('hidden');
+
     let close = new CustomEvent('closeTaskEditor');
     document.dispatchEvent(close);
 }
@@ -42,11 +58,20 @@ function closeButtonFunction(event) {
 
 function openTaskEditor(event) {
     currentTask = event.detail.currentTask;
-    let taskValue = currentTask.querySelector('.taskValue');
+    let currentTaskPriority = currentTask.querySelector('.highPriority');
+    let currentTaskValue = currentTask.querySelector('.taskValue');
+
     let taskEditorWindow = document.querySelector('.taskEditor');
     taskEditorWindow.classList.remove('hidden');
+
     let taskEditorString = taskEditorWindow.querySelector('input');
-    taskEditorString.value = taskValue.innerText;
+    taskEditorString.value = currentTaskValue.innerText;
+
+    let taskEditorCheckBox = taskEditorWindow.querySelector('.checkBox');
+    if(currentTaskPriority.classList.contains('hidden'))
+    {
+        taskEditorCheckBox.classList.remove('checked');
+    } else taskEditorCheckBox.classList.add('checked');
 }
 
 function closeTaskEditor(event) {
@@ -102,10 +127,8 @@ function makeATask(taskCount) {
 function switchCompleteStatus(event)
 {
     let task = event.target.closest('.task');
-    //let highPriority = task.querySelector('.highPriority');
     this.classList.toggle('checked');
     task.classList.toggle('complitedTask');
-    //highPriority.classList.toggle('hidden');
 }
 
 function editTask(event) {
